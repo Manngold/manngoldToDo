@@ -1,0 +1,9 @@
+{
+  "name": "manngoldToDo",
+  "version": "1.0.0",
+  "description": "practice html, css, js",
+  "main": "index.js",
+  "repository": "https://github.com/Manngold/manngoldToDo.git",
+  "author": "Manngold <36980767+Manngold@users.noreply.github.com>",
+  "license": "MIT"
+}

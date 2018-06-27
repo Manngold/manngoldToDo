@@ -1,0 +1,15 @@
+html,
+body{
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header_icon{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
