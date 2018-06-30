@@ -11,16 +11,16 @@
 <body>
     <header class="header">
         <h4>Manngold To Do</h4>
-        <span class="header_menu">
-            <div class="header_icon"><i class="far fa-trash-alt"></i></div>
-        </span>
     </header>
     <section class="input_section">
-            <input type="text" class="input_box" size="30">
-            <div class="header_icon">
-                <i class="fas fa-plus" onclick="addToDo(event)"></i>
+            <input type="text" class="input_box" id="input_todo" size="30">
+            <div class="icon">
+                <i class="fas fa-plus" onclick="addToDo()">
+                    <script type="text/javascript" src="../js/create.js"></script>
+                </i>
             </div>
-            
+    </section>
+    <section class="todo_list">
     </section>
 </body>
 </html>

@@ -7,13 +7,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
 }
-.header_menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.icon{
+    padding-left: 5%;
 }
-.header_icon:hover{
+
+.icon:hover{
     color: rgb(236, 9, 9);
 }
 
@@ -21,4 +22,5 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
 }
