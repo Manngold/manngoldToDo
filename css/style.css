@@ -5,11 +5,20 @@ body{
 
 .header{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
-.header_icon{
+.header_menu{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+.header_icon:hover{
+    color: rgb(236, 9, 9);
+}
+
+.input_section{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
