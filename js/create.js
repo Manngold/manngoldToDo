@@ -1,9 +1,22 @@
+const toDoList = [];
+let toDo;
 const addToDo = () => {
-    let toDo = document.getElementById('input_todo').value;
+    toDo = document.getElementById('input_todo').value;
     if (toDo.length == 0){
-        console.log("insert value");
+        return document.createElement(alert("insert value!"));
     }
     else {
-        console.log(toDo);
+        clickAdd();
     }
 };
+
+const addList = () => {
+    toDoList.push(toDo);
+    console.log(toDoList)
+};
+
+const clickAdd = () => {
+    document.getElementById('input_todo').addEventListener("click", addList());
+};
+
+
