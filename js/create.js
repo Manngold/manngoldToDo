@@ -3,9 +3,9 @@ let toDo;
 
 const createBlock = () => {
     let getId = document.getElementById('todo_list');
-    let giveProp = document.createElement('div');
-    let createBlock = getId.appendChild(giveProp);
-    return createBlock;
+    let giveElement = document.createElement('div');
+    let createBlock = getId.appendChild(giveElement);
+    createBlock.innerHTML = toDoList[toDoList.length - 1];
 };
 
 const addList = () => {
