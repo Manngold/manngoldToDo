@@ -1,11 +1,29 @@
 const toDoList = [];
 let toDo;
 
-const createBlock = () => {
+const bigBoxCreate = () => {
     let getId = document.getElementById('todo_list');
     let giveElement = document.createElement('div');
-    let createBlock = getId.appendChild(giveElement);
-    createBlock.innerHTML = toDoList[toDoList.length - 1];
+    let divIn = getId.appendChild(giveElement);
+    return divIn;
+};
+
+const smallBoxCreate = () => {
+    let getClass = document.getElementById('todo');
+    let giveElement = document.createElement('div');
+    let divIn = getClass.appendChild(giveElement);
+    return divIn;
+};
+
+const createBlock = () => {
+    let toDoDiv = bigBoxCreate();
+    toDoDiv.id = "todo";
+    toDoDiv.innerHTML = toDoList[toDoList.length - 1];
+    let fixDiv = smallBoxCreate();
+    fixDiv.id = "rewrite";
+    let deleteDiv = smallBoxCreate();
+    deleteDiv.id = "delete";
+
 };
 
 const addList = () => {
