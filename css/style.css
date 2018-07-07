@@ -28,14 +28,19 @@ body{
 .todo{
     box-sizing: border-box;
     font-size: 20px;
-    padding-left: 10px;
+    padding-left: 70px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
     border: 1px solid rgba(212, 205, 205, 0.774);
     
 }
-
+.edit{
+    padding-left: 130px;
+}
+.delete{
+    padding-right: 10px;
+}
 i:hover {
     color: red;
 }
