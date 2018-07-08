@@ -18,6 +18,7 @@ const addEdit = () => {
     let getClass = document.getElementsByClassName('edit')[toDoList.length - 1];
     let giveElement = document.createElement('i');
     let editIcon = getClass.appendChild(giveElement);
+    editIcon.className = 'fas fa-edit';
     return editIcon;
 };
 
@@ -25,6 +26,7 @@ const addDelete = () => {
     let getClass = document.getElementsByClassName('delete')[toDoList.length - 1];
     let giveElement = document.createElement('i');
     let deleteIcon = getClass.appendChild(giveElement);
+    deleteIcon.className = "far fa-trash-alt";
     return deleteIcon;
 };
 
@@ -34,16 +36,13 @@ const createBlock = () => {
     toDoDiv.innerHTML = toDoList[toDoList.length - 1];
     let editDiv = smallBoxCreate();
     editDiv.className = "edit";
-    let editIcon = addEdit();
-    editIcon.className = "fas fa-edit"
+    addEdit();
     let deleteDiv = smallBoxCreate();
     deleteDiv.className = "delete";
-    let deleteIcon = addDelete();
-    deleteIcon.className = "far fa-trash-alt";
+    addDelete();
 };
 
 const addList = () => {
-
     toDoList.push(toDo);
     console.log(toDoList);
     createBlock();
@@ -52,10 +51,6 @@ const addList = () => {
 const clickAdd = () => {
     document.getElementById('input_todo').addEventListener("click", addList());
 };
-
-document.getElementsByClassName('edit')[toDoList.length - 1].addEventListener('click', editEvent());
-document.getElementsByClassName('delete')[toDoList.length - 1].addEventListener('click', deleteEvent());
-
 const addToDo = () => {
     toDo = document.getElementById('input_todo').value;
     if (toDo.length == 0){
@@ -66,11 +61,18 @@ const addToDo = () => {
     }
 };
 
+
 const editEvent = () => {
-    console.log('edit complete');
+    let getClass = document.getElementsByClassName('todo')[toDoList.length - 1];
+    let inputBox = getClass.createElement("input");
+    inputBox.ClassName = 'rewrite';
+    inputBox.addEventListener('keyup', (event) => {
+        if (event.keyCode === 13){
+            toDoList[toDoList.length - 1] = document.getElementsByClassName('rewrite')[toDoList.length - 1] 
+        };
+    });
 };
 
 const deleteEvent = () => {
     console.log("delete complete");
 };
-
