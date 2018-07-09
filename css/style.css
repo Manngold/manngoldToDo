@@ -37,3 +37,7 @@ section{
 .input_todo:focus{
     outline: none;
 }
+
+.todo{
+    font-size: 30px;
+}
