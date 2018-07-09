@@ -28,3 +28,12 @@ section{
     padding-bottom: 10px;
     border-bottom: 2px solid rgb(105, 100, 100);
 }
+.input_todo{
+    padding: 0;
+    border: 0 #FFFFFF;
+    font-size: 20pt;
+}
+
+.input_todo:focus{
+    outline: none;
+}

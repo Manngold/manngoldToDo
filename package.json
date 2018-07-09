@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/Manngold/manngoldToDo.git",
   "author": "Manngold <36980767+Manngold@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^9.2.0"
+  }
 }
