@@ -29,10 +29,17 @@ const createToDo = () => {
 }
 const createInnerBox = () => {
     let divType = ["doOrNot", "editIcon", "deleteIcon"];
+    let iconClass = ["far fa-circle", "far fa-edit", "far fa-trash-alt"];
     for (let i = 0; i < 3; i++){
         let getClass = document.getElementsByClassName("todo")[toDoList.length - 1];
         let createDiv = document.createElement("div");
         let newDiv = getClass.appendChild(createDiv);
         newDiv.className = divType[i];
+    };
+    for (let i = 0; i < 3; i++){
+        let getClass = document.getElementsByClassName(divType[i])[toDoList.length - 1];
+        let createIcon = document.createElement("i");
+        let newIcon = getClass.appendChild(createIcon);
+        newIcon.className = iconClass[i];
     }
-}
+};
