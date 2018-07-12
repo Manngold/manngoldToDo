@@ -1,6 +1,5 @@
 const toDoList = [];
 let toDo;
-
 const enterInput = () => {
     if(event.keyCode===13){
         let getClass = document.getElementsByClassName("input_todo")[0];
@@ -13,6 +12,7 @@ const enterInput = () => {
         console.log(toDoList);
         clearValue();
         createToDo();
+
     }
 };
 const clearValue = () => {
@@ -25,21 +25,22 @@ const createToDo = () => {
     let newDiv = getClass.appendChild(createDiv);
     newDiv.innerHTML = toDoList[toDoList.length - 1];
     newDiv.className = "todo"
-    createInnerBox();
-}
-const createInnerBox = () => {
-    let divType = ["doOrNot", "editIcon", "deleteIcon"];
-    let iconClass = ["far fa-circle", "far fa-edit", "far fa-trash-alt"];
-    for (let i = 0; i < 3; i++){
-        let getClass = document.getElementsByClassName("todo")[toDoList.length - 1];
-        let createDiv = document.createElement("div");
-        let newDiv = getClass.appendChild(createDiv);
-        newDiv.className = divType[i];
-    };
-    for (let i = 0; i < 3; i++){
-        let getClass = document.getElementsByClassName(divType[i])[toDoList.length - 1];
-        let createIcon = document.createElement("i");
-        let newIcon = getClass.appendChild(createIcon);
-        newIcon.className = iconClass[i];
-    }
 };
+
+const checkEvent = () => {
+    for (let i = 0; i < toDoList.length; i++){
+        let getClass = document.getElementsByClassName("todo")[i];
+        let checkBox = document.createElement("input");
+        checkBox.type = 'checkbox';
+        checkBox.className = "checkbox";
+        getClass.appendChild(checkBox);
+        
+    }  
+}
+
+const clear = () => {
+    for (let i = 0; i < toDoList.length; i++){
+        let getClass = document.getElementsByClassName("checkbox")[i];
+        getClass.remove();
+    }
+}

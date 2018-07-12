@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <script  src="../js/index.js"></script>
-    <script src="../js/delete.js"></script>
     <title>Manngold to do</title>
 </head>
 <body>
@@ -15,7 +14,15 @@
         <h3>Manngold To Do App</h3>
     </header>
     <section class="todo_box">
-        <div class="input"><input class="input_todo" type="text" placeholder="New To Do" size="15.7" onkeypress="enterInput()" ></div>
+        <div class="input">
+            <input class="input_todo" type="text" placeholder="New To Do"
+            size="15.7" onkeypress="enterInput()" >
+        </div>
+        <div class="btn_box">
+            <div class="done_btn"><i class="far fa-circle" onclick="checkEvent()"></i></div>
+            <div class="edit_btn"><i class="far fa-edit" onclick="checkEvent()"></i></div>
+            <div class="delete_btn"><i class="far fa-trash-alt" onclick="checkEvent()"></i></div>
+        </div>
     </section>
 </body>
 </html>
