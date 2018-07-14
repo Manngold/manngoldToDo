@@ -39,7 +39,7 @@ section{
     outline: none;
 }
 
-.todo{
+.todo_div{
     display: flex;
     justify-content: space-between;
     font-size: 30px;
@@ -64,12 +64,6 @@ section{
     font-size: 30px;
     margin-left: 30px;
 }
-.done_btn:active{
-    color: red;
-} 
-.edit_btn:active{
-    color: red;
-}
-.delete_btn:active{
+i:active{
     color: red;
 }

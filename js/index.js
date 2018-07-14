@@ -2,7 +2,7 @@ const toDoList = [];
 let toDo;
 const enterInput = () => {
     if(event.keyCode===13){
-        let getClass = document.getElementsByClassName("input_todo")[0];
+        let getClass = document.querySelectorAll(".input_todo")[0];
         if(getClass.value.length==0){
             return document.createElement(alert("Input to do"));
         }
@@ -11,36 +11,61 @@ const enterInput = () => {
         toDoList.push(toDo);
         console.log(toDoList);
         clearValue();
+        createToDoDiv();
         createToDo();
-
     }
 };
 const clearValue = () => {
-    let getClass = document.getElementsByClassName("input_todo")[0];
+    let getClass = document.querySelectorAll(".input_todo")[0];
     getClass.value = ""
 }
-const createToDo = () => {
-    let getClass = document.getElementsByClassName("todo_box")[0];
-    let createDiv = document.createElement("div")
+const createToDoDiv = () => {
+    let getClass = document.querySelectorAll(".todo_box")[0];
+    let createDiv = document.createElement("div");
     let newDiv = getClass.appendChild(createDiv);
-    newDiv.innerHTML = toDoList[toDoList.length - 1];
-    newDiv.className = "todo"
+    newDiv.className = "todo_div";
 };
+const createToDo = () => {
+    let getClass = document.querySelectorAll(".todo_div")[toDoList.length - 1];
+    let createDiv = document.createElement("div");
+    let newDiv = getClass.appendChild(createDiv);
+    newDiv.className = "todo";
+    newDiv.innerHTML = toDo;
 
-const checkEvent = () => {
-    for (let i = 0; i < toDoList.length; i++){
-        let getClass = document.getElementsByClassName("todo")[i];
-        let checkBox = document.createElement("input");
-        checkBox.type = 'checkbox';
-        checkBox.className = "checkbox";
-        getClass.appendChild(checkBox);
-        
-    }  
 }
 
-const clear = () => {
-    for (let i = 0; i < toDoList.length; i++){
-        let getClass = document.getElementsByClassName("checkbox")[i];
-        getClass.remove();
+const checkBox = () => {
+    for(let i = 0; i < toDoList.length; i++){
+        let getClass = document.querySelectorAll(".todo_div")[i];
+        let createIcon = document.createElement("i");
+        let newIcon = getClass.appendChild(createIcon);
+        newIcon.className = "far fa-square";
+        newIcon.onclick = done;   
     }
 }
+
+const done = () => {
+    let els = Array.prototype.slice.call( document.getElementsByClassName("far fa-square"), 0);
+    let index = els.indexOf(event.currentTarget);
+    document.getElementsByClassName("todo")[index].style.fontStyle = "italic";
+    document.getElementsByClassName("todo")[index].style.color = "#E9ECEF";
+    document.getElementsByClassName("todo")[index].style.setProperty("text-decoration", "line-through");
+};
+// const doneEvent = () => {
+//     document.addEventListener("DOMContentLoaded", () => {
+//         document.querySelectorAll(".checkbox").onchange=done;
+//     });
+//     let done = (event) => {
+//         if(!event.target){alert("Check Checkbox")}
+//         else{
+//             document.
+//         }
+//     }
+// }
+
+// const clearCheckBox = () => {
+//     for (let i = 0; i < toDoList.length; i++){
+//         let getClass = document.getElementsByClassName("checkbox")[i];
+//         getClass.remove();
+//     }
+// }
