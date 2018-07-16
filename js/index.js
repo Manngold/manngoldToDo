@@ -13,6 +13,7 @@ const enterInput = () => {
         clearValue();
         createToDoDiv();
         createToDo();
+        clearCheckBox();
     }
 };
 const clearValue = () => {
@@ -34,38 +35,33 @@ const createToDo = () => {
 
 }
 
-const checkBox = () => {
+const doneCheckBox = () => {
     for(let i = 0; i < toDoList.length; i++){
         let getClass = document.querySelectorAll(".todo_div")[i];
         let createIcon = document.createElement("i");
         let newIcon = getClass.appendChild(createIcon);
         newIcon.className = "far fa-square";
-        newIcon.onclick = done;   
+        newIcon.onclick = done;
     }
-}
+};
 
 const done = () => {
     let els = Array.prototype.slice.call( document.getElementsByClassName("far fa-square"), 0);
     let index = els.indexOf(event.currentTarget);
-    document.getElementsByClassName("todo")[index].style.fontStyle = "italic";
-    document.getElementsByClassName("todo")[index].style.color = "#E9ECEF";
-    document.getElementsByClassName("todo")[index].style.setProperty("text-decoration", "line-through");
+    document.querySelectorAll(".todo")[index].style.fontStyle = "italic";
+    document.querySelectorAll(".todo")[index].style.color = "#E9ECEF";
+    document.querySelectorAll(".todo")[index].style.setProperty("text-decoration", "line-through");
+    clearCheckBox();
 };
-// const doneEvent = () => {
-//     document.addEventListener("DOMContentLoaded", () => {
-//         document.querySelectorAll(".checkbox").onchange=done;
-//     });
-//     let done = (event) => {
-//         if(!event.target){alert("Check Checkbox")}
-//         else{
-//             document.
-//         }
-//     }
-// }
 
-// const clearCheckBox = () => {
-//     for (let i = 0; i < toDoList.length; i++){
-//         let getClass = document.getElementsByClassName("checkbox")[i];
-//         getClass.remove();
-//     }
-// }
+const clearCheckBox = () => {
+    let parentClass = document.querySelectorAll(".todo_div")[0];
+    let child = parentClass.childNodes;
+    if(child.length == 2){
+        for(let i = 0; i < toDoList.length; i++){
+            let selectAll = document.querySelectorAll(".todo_div")[i];
+            selectAll.removeChild(selectAll.lastChild);
+        }
+    }
+    else return;
+};
