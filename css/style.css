@@ -67,3 +67,11 @@ section{
 i:active{
     color: red;
 }
+.editInputBox{
+    font-size: 30px;
+    border: 0 #FFFFFF;
+
+}
+.editInputBox:focus{
+    outline: none;
+}

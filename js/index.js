@@ -35,18 +35,18 @@ const createToDo = () => {
 
 }
 
-const doneCheckBox = () => {
+const checkBox = () => {
     for(let i = 0; i < toDoList.length; i++){
         let getClass = document.querySelectorAll(".todo_div")[i];
         let createIcon = document.createElement("i");
         let newIcon = getClass.appendChild(createIcon);
         newIcon.className = "far fa-square";
-        newIcon.onclick = done;
+        newIcon.onclick = editToDo;
     }
 };
 
-const done = () => {
-    let els = Array.prototype.slice.call( document.getElementsByClassName("far fa-square"), 0);
+const doneToDo = () => {
+    let els = Array.prototype.slice.call(document.getElementsByClassName("far fa-square"), 0);
     let index = els.indexOf(event.currentTarget);
     document.querySelectorAll(".todo")[index].style.fontStyle = "italic";
     document.querySelectorAll(".todo")[index].style.color = "#E9ECEF";
@@ -54,6 +54,40 @@ const done = () => {
     clearCheckBox();
 };
 
+const editToDo = () => {
+    let els = Array.prototype.slice.call(document.getElementsByClassName("far fa-square"), 0);
+    let index = els.indexOf(event.currentTarget);
+    let oldChild = document.querySelectorAll(".todo")[index];
+    let parentDiv = oldChild.parentNode;
+    let createEls = document.createElement("input");
+    parentDiv.replaceChild(createEls, oldChild);
+    createEls.className = "editInputBox";
+    createEls.placeholder = toDoList[index];
+    createEls.onkeypress = () => {
+        if(event.keyCode === 13){
+            let getClass = document.querySelectorAll(".editInputBox")[0];
+            parentDiv = getClass.parentNode;
+            toDoList[index] = event.target.value;
+            let newChild = document.createElement("div");
+            newChild.className = "todo";
+            parentDiv.replaceChild(newChild, getClass);
+            newChild.innerHTML = toDoList[index];
+            clearCheckBox();
+        }
+    };
+};
+// const enterEdit = (event) => {
+//     if(event.keyCode === 13){
+//         let getClass = document.querySelectorAll(".editInputBox")[index];
+//         let fixedToDo = getClass.innerHTML;
+//         parentDiv
+//     }
+// }
+
+const deleteToDo = () => {
+    let els = Array.prototype.slice.call(document.getElementsByClassName("far fa-square"), 0);
+    let index = els.indexOf(event.currentTarget);
+}
 const clearCheckBox = () => {
     let parentClass = document.querySelectorAll(".todo_div")[0];
     let child = parentClass.childNodes;
