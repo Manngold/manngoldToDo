@@ -36,12 +36,15 @@ const createToDo = () => {
 }
 
 const checkBox = () => {
+    let index;
+    event.currentTarget.className == "far fa-circle" ? index = 0 : event.currentTarget.className == "far fa-edit" ? index = 1 : index = 2
+    let eventList = [doneToDo, editToDo, deleteToDo];
     for(let i = 0; i < toDoList.length; i++){
         let getClass = document.querySelectorAll(".todo_div")[i];
         let createIcon = document.createElement("i");
         let newIcon = getClass.appendChild(createIcon);
         newIcon.className = "far fa-square";
-        newIcon.onclick = editToDo;
+        newIcon.onclick = eventList[index];
     }
 };
 
@@ -76,17 +79,15 @@ const editToDo = () => {
         }
     };
 };
-// const enterEdit = (event) => {
-//     if(event.keyCode === 13){
-//         let getClass = document.querySelectorAll(".editInputBox")[index];
-//         let fixedToDo = getClass.innerHTML;
-//         parentDiv
-//     }
-// }
 
 const deleteToDo = () => {
     let els = Array.prototype.slice.call(document.getElementsByClassName("far fa-square"), 0);
     let index = els.indexOf(event.currentTarget);
+    let parentDiv = document.querySelector(".todo_box");
+    let chlidEls = document.querySelectorAll(".todo_div")[index];
+    parentDiv.removeChild(chlidEls);
+    let removedToDo = toDoList.splice(index, 1);
+    clearCheckBox();
 }
 const clearCheckBox = () => {
     let parentClass = document.querySelectorAll(".todo_div")[0];
